@@ -2,7 +2,7 @@
 
 A collection of hands-on training manuals on the Microsoft Dynamics 365 business applications, each a single self-contained HTML page. Grounded in the official Microsoft Learn documentation.
 
-**Live site:** https://yuro75.github.io/dynamics-365/
+**Live site:** https://yuro75.github.io/d365/
 
 ## Contents
 
