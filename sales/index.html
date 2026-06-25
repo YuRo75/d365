@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dynamics 365 Sales</title><style>
+  :root{--accent:#0b78c4;--accent-deep:#06304d;--accent-soft:#eaf4fb;
+    --green:#107c41;--amber:#d29922;--ink:#1f2328;--muted:#5b6770;--line:#d7dee0;--bg:#ffffff;--code-bg:#f5f7f9;--sidebar:#f5f7f9}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:-apple-system,'Segoe UI',system-ui,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .shell{display:grid;grid-template-columns:268px 1fr;min-height:100vh}
+  nav{position:sticky;top:0;height:100vh;overflow-y:auto;background:var(--sidebar);border-right:1px solid var(--line);padding:24px 18px}
+  nav .home{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;color:var(--muted);margin-bottom:16px}
+  nav .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:16px;margin-bottom:6px;color:var(--ink)}
+  nav .brand .logo{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent-deep));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:13px;flex:none}
+  nav .ver{font-size:12px;color:var(--muted);margin-bottom:18px}
+  nav a.lnk{display:block;color:var(--ink);font-size:13.5px;padding:5px 10px;border-radius:6px;margin:1px 0}
+  nav a.lnk:hover{background:#e7edf1;text-decoration:none}
+  nav .sec{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700;margin:16px 0 5px;padding-left:10px}
+  main{padding:0 0 100px}
+  .hero{background:linear-gradient(135deg,var(--accent-deep),var(--accent));color:#fff;padding:50px 56px 40px}
+  .hero .eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:12px;font-weight:600;opacity:.85;margin:0 0 10px}
+  .hero h1{margin:0 0 12px;font-size:34px;font-weight:800}
+  .hero p{font-size:17px;opacity:.93;max-width:680px;margin:0}
+  .hero .pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+  .pill{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.26);padding:6px 13px;border-radius:20px;font-size:13px;font-weight:600}
+  .content{padding:14px 56px;max-width:1000px}
+  section{padding:26px 0;border-bottom:1px solid var(--line)}
+  section:last-child{border-bottom:none}
+  h2{font-size:24px;margin:6px 0 4px;display:flex;align-items:center;gap:12px}
+  h2 .badge{font-size:13px;font-weight:700;color:#fff;background:var(--accent);border-radius:20px;min-width:28px;height:28px;padding:0 8px;display:inline-flex;align-items:center;justify-content:center}
+  h3{font-size:17.5px;margin:22px 0 6px}
+  p,li{font-size:15px}
+  code{background:var(--code-bg);border:1px solid var(--line);border-radius:5px;padding:1px 6px;font-family:'SFMono-Regular',Consolas,monospace;font-size:13px}
+  pre{background:#0f1720;color:#e6edf3;border:1px solid #20303d;border-radius:10px;padding:16px 18px;overflow-x:auto;font-size:13px;line-height:1.55}
+  pre code{background:none;border:none;padding:0;color:inherit}
+  .cmt{color:#7d8da3}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
+  th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{background:var(--code-bg);font-weight:700}
+  .callout{border-radius:10px;padding:14px 18px;margin:16px 0;font-size:14.5px;border-left:4px solid}
+  .tip{background:#ecfdf3;border-color:var(--green)}
+  .warn{background:#fff8e6;border-color:var(--amber)}
+  .info{background:var(--accent-soft);border-color:var(--accent)}
+  .callout b{display:block;margin-bottom:3px}
+  .steps{counter-reset:step;list-style:none;padding-left:0}
+  .steps li{counter-increment:step;position:relative;padding:8px 0 8px 44px;border-bottom:1px solid var(--line)}
+  .steps li:last-child{border-bottom:none}
+  .steps li::before{content:counter(step);position:absolute;left:0;top:8px;width:28px;height:28px;background:var(--accent-deep);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+  .card{background:var(--code-bg);border:1px solid var(--line);border-radius:10px;padding:16px 18px}
+  .card h4{margin:0 0 6px;font-size:15px}
+  .srclist{margin:6px 0 0;padding-left:20px}
+  .srclist li{margin:7px 0;font-size:14.5px}
+  .srclist a{font-weight:600;word-break:break-word}
+  footer{padding:28px 56px;color:var(--muted);font-size:13px}
+  @media(max-width:880px){.shell{grid-template-columns:1fr}nav{display:none}.hero,.content,footer{padding-left:22px;padding-right:22px}.grid2,.grid3{grid-template-columns:1fr}}
+</style></head><body>
+<div class="shell">
+  <nav>
+    <a class="home" href="../index.html">&#8592; Dynamics 365 Library</a>
+    <div class="brand"><span class="logo">SL</span> Sales</div>
+    <div class="ver">v1.0 &middot; June 2026</div>
+    <div class="sec">Foundations</div><a class="lnk" href="#intro">1. What is it?</a><a class="lnk" href="#flow">2. The sales flow</a><div class="sec">Working in Sales</div><a class="lnk" href="#objects">3. Key records</a><a class="lnk" href="#copilot">4. Sales Copilot</a><a class="lnk" href="#pipeline">5. Pipeline & forecast</a><a class="lnk" href="#glossary">6. Glossary</a><div class="sec">Go further</div><a class="lnk" href="#learn">7. Where to start</a><a class="lnk" href="#sources">8. Sources</a>
+  </nav>
+  <main>
+    <div class="hero"><p class="eyebrow">Customer engagement &middot; CRM</p><h1>Dynamics 365 Sales</h1><p>Manage the full sales cycle &mdash; leads, opportunities, and pipeline &mdash; with relationship insights and a built-in Copilot.</p><div class="pills"><span class="pill">Leads &amp; opportunities</span><span class="pill">Pipeline</span><span class="pill">Forecasting</span><span class="pill">Sales Copilot</span></div></div>
+    <div class="content">
+      <section id="intro">
+        <h2><span class="badge">1</span> What is Dynamics 365 Sales?</h2>
+        <p><strong>Dynamics 365 Sales</strong> helps sellers build relationships, act on insights, and close deals faster. It tracks the journey from a first <strong>lead</strong> through a qualified <strong>opportunity</strong> to a won deal &mdash; all on the shared Dataverse customer record.</p><div class="callout info"><b>Copilot built in</b>Copilot summarizes leads and opportunities, catches you up on recent changes, prepares you for meetings, and enriches records with external information.</div>
+      </section>
+      <section id="flow">
+        <h2><span class="badge">2</span> The core sales flow</h2>
+        <ol class="steps"><li>A <strong>lead</strong> arrives (web form, event, referral) &mdash; an unqualified prospect.</li><li>You <strong>qualify</strong> the lead, confirming interest, budget, and fit.</li><li>It becomes an <strong>opportunity</strong> &mdash; a real potential deal with products and value.</li><li>You progress it through <strong>pipeline stages</strong>, logging activities.</li><li>You <strong>close</strong> the opportunity as won or lost; won deals can become orders.</li></ol><div class="callout tip"><b>Lead vs opportunity</b>A <strong>lead</strong> is a maybe; an <strong>opportunity</strong> is a qualified deal you're actively working. Qualifying converts one to the other.</div>
+      </section>
+      <section id="objects">
+        <h2><span class="badge">3</span> Key records</h2>
+        <table><tr><th>Record</th><th>What it is</th></tr><tr><td>Lead</td><td>An unqualified prospect to evaluate.</td></tr><tr><td>Opportunity</td><td>A qualified potential deal with value and products.</td></tr><tr><td>Account</td><td>A company you do business with.</td></tr><tr><td>Contact</td><td>A person, usually linked to an account.</td></tr><tr><td>Quote / Order</td><td>A formal price proposal / a confirmed purchase.</td></tr><tr><td>Activity</td><td>A call, email, task, or appointment on a record.</td></tr></table>
+      </section>
+      <section id="copilot">
+        <h2><span class="badge">4</span> Selling with Copilot</h2>
+        <div class="grid2"><div class="card"><h4>Summarize</h4>Get a quick recap of a lead or opportunity and its history.</div><div class="card"><h4>Catch up</h4>See what changed on your records since you last looked.</div><div class="card"><h4>Prepare</h4>Generate meeting prep with the latest account context.</div><div class="card"><h4>Enrich</h4>Pull in information about leads from other sources.</div></div><div class="callout tip"><b>Ask in natural language</b>Instead of digging through tabs, ask Copilot "what changed on the Contoso opportunity this week?" and act on the summary.</div>
+      </section>
+      <section id="pipeline">
+        <h2><span class="badge">5</span> Pipeline & forecasting</h2>
+        <p>The <strong>pipeline</strong> is your set of open opportunities by stage; <strong>forecasting</strong> rolls their value into a predicted revenue number you can manage against quota.</p><ul><li>Track each opportunity's stage, value, and close date.</li><li>Use the pipeline view to spot stalled or at-risk deals.</li><li>Roll up forecasts by seller, team, or territory.</li></ul>
+      </section>
+      <section id="glossary">
+        <h2><span class="badge">6</span> Glossary</h2>
+        <table><tr><th>Term</th><th>Definition</th></tr><tr><td>Lead</td><td>An unqualified prospect.</td></tr><tr><td>Opportunity</td><td>A qualified, active potential deal.</td></tr><tr><td>Pipeline</td><td>Your open opportunities across stages.</td></tr><tr><td>Forecast</td><td>Predicted revenue rolled up from opportunities.</td></tr><tr><td>Qualify</td><td>Converting a lead into an opportunity.</td></tr></table>
+      </section>
+      <section id="learn">
+        <h2><span class="badge">7</span> Where to start &mdash; learning path</h2>
+        <p>A guided path to go from zero to productive. Work top to bottom:</p><ul class="srclist"><li><a href="https://learn.microsoft.com/dynamics365/sales/user-guide-learn-basics" target="_blank" rel="noopener">Learn the basics of Dynamics 365 Sales</a></li><li><a href="https://learn.microsoft.com/dynamics365/sales/help-hub" target="_blank" rel="noopener">Sales help hub</a></li><li><a href="https://learn.microsoft.com/dynamics365/sales/copilot-overview" target="_blank" rel="noopener">Use Copilot in Dynamics 365 Sales</a></li><li><a href="https://learn.microsoft.com/dynamics365/release-plan/2026wave1/sales/dynamics365-sales/" target="_blank" rel="noopener">Sales 2026 release wave 1</a></li></ul>
+      </section>
+      <section id="sources">
+        <h2><span class="badge">8</span> Sources</h2>
+        <p>This manual is grounded in the official Microsoft documentation. For authoritative, up-to-date detail, see:</p><ul class="srclist"><li><a href="https://learn.microsoft.com/dynamics365/sales/user-guide-learn-basics" target="_blank" rel="noopener">Learn the basics of Dynamics 365 Sales</a></li><li><a href="https://learn.microsoft.com/dynamics365/sales/help-hub" target="_blank" rel="noopener">Dynamics 365 Sales help hub</a></li><li><a href="https://learn.microsoft.com/dynamics365/sales/copilot-overview" target="_blank" rel="noopener">Use Copilot in Dynamics 365 Sales</a></li></ul>
+      </section>
+
+    </div>
+    <footer>Dynamics 365 Sales &middot; Dynamics 365 Library &middot; Generated 25 June 2026. Grounded in the official <a href="https://learn.microsoft.com/dynamics365/sales/help-hub">Microsoft documentation</a>.</footer>
+  </main>
+</div></body></html>

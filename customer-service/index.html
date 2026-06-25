@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dynamics 365 Customer Service</title><style>
+  :root{--accent:#107c4b;--accent-deep:#06311e;--accent-soft:#ecfbf3;
+    --green:#107c41;--amber:#d29922;--ink:#1f2328;--muted:#5b6770;--line:#d7dee0;--bg:#ffffff;--code-bg:#f5f7f9;--sidebar:#f5f7f9}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:-apple-system,'Segoe UI',system-ui,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .shell{display:grid;grid-template-columns:268px 1fr;min-height:100vh}
+  nav{position:sticky;top:0;height:100vh;overflow-y:auto;background:var(--sidebar);border-right:1px solid var(--line);padding:24px 18px}
+  nav .home{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;color:var(--muted);margin-bottom:16px}
+  nav .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:16px;margin-bottom:6px;color:var(--ink)}
+  nav .brand .logo{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent-deep));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:13px;flex:none}
+  nav .ver{font-size:12px;color:var(--muted);margin-bottom:18px}
+  nav a.lnk{display:block;color:var(--ink);font-size:13.5px;padding:5px 10px;border-radius:6px;margin:1px 0}
+  nav a.lnk:hover{background:#e7edf1;text-decoration:none}
+  nav .sec{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700;margin:16px 0 5px;padding-left:10px}
+  main{padding:0 0 100px}
+  .hero{background:linear-gradient(135deg,var(--accent-deep),var(--accent));color:#fff;padding:50px 56px 40px}
+  .hero .eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:12px;font-weight:600;opacity:.85;margin:0 0 10px}
+  .hero h1{margin:0 0 12px;font-size:34px;font-weight:800}
+  .hero p{font-size:17px;opacity:.93;max-width:680px;margin:0}
+  .hero .pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+  .pill{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.26);padding:6px 13px;border-radius:20px;font-size:13px;font-weight:600}
+  .content{padding:14px 56px;max-width:1000px}
+  section{padding:26px 0;border-bottom:1px solid var(--line)}
+  section:last-child{border-bottom:none}
+  h2{font-size:24px;margin:6px 0 4px;display:flex;align-items:center;gap:12px}
+  h2 .badge{font-size:13px;font-weight:700;color:#fff;background:var(--accent);border-radius:20px;min-width:28px;height:28px;padding:0 8px;display:inline-flex;align-items:center;justify-content:center}
+  h3{font-size:17.5px;margin:22px 0 6px}
+  p,li{font-size:15px}
+  code{background:var(--code-bg);border:1px solid var(--line);border-radius:5px;padding:1px 6px;font-family:'SFMono-Regular',Consolas,monospace;font-size:13px}
+  pre{background:#0f1720;color:#e6edf3;border:1px solid #20303d;border-radius:10px;padding:16px 18px;overflow-x:auto;font-size:13px;line-height:1.55}
+  pre code{background:none;border:none;padding:0;color:inherit}
+  .cmt{color:#7d8da3}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
+  th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{background:var(--code-bg);font-weight:700}
+  .callout{border-radius:10px;padding:14px 18px;margin:16px 0;font-size:14.5px;border-left:4px solid}
+  .tip{background:#ecfdf3;border-color:var(--green)}
+  .warn{background:#fff8e6;border-color:var(--amber)}
+  .info{background:var(--accent-soft);border-color:var(--accent)}
+  .callout b{display:block;margin-bottom:3px}
+  .steps{counter-reset:step;list-style:none;padding-left:0}
+  .steps li{counter-increment:step;position:relative;padding:8px 0 8px 44px;border-bottom:1px solid var(--line)}
+  .steps li:last-child{border-bottom:none}
+  .steps li::before{content:counter(step);position:absolute;left:0;top:8px;width:28px;height:28px;background:var(--accent-deep);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+  .card{background:var(--code-bg);border:1px solid var(--line);border-radius:10px;padding:16px 18px}
+  .card h4{margin:0 0 6px;font-size:15px}
+  .srclist{margin:6px 0 0;padding-left:20px}
+  .srclist li{margin:7px 0;font-size:14.5px}
+  .srclist a{font-weight:600;word-break:break-word}
+  footer{padding:28px 56px;color:var(--muted);font-size:13px}
+  @media(max-width:880px){.shell{grid-template-columns:1fr}nav{display:none}.hero,.content,footer{padding-left:22px;padding-right:22px}.grid2,.grid3{grid-template-columns:1fr}}
+</style></head><body>
+<div class="shell">
+  <nav>
+    <a class="home" href="../index.html">&#8592; Dynamics 365 Library</a>
+    <div class="brand"><span class="logo">CS</span> Customer Service</div>
+    <div class="ver">v1.0 &middot; June 2026</div>
+    <div class="sec">Foundations</div><a class="lnk" href="#intro">1. What is it?</a><a class="lnk" href="#case">2. The case lifecycle</a><div class="sec">How work flows</div><a class="lnk" href="#queues">3. Queues & routing</a><a class="lnk" href="#omnichannel">4. Omnichannel</a><a class="lnk" href="#glossary">5. Glossary</a><div class="sec">Go further</div><a class="lnk" href="#learn">6. Where to start</a><a class="lnk" href="#sources">7. Sources</a>
+  </nav>
+  <main>
+    <div class="hero"><p class="eyebrow">Customer engagement &middot; CRM</p><h1>Dynamics 365 Customer Service</h1><p>Resolve customer issues efficiently &mdash; cases, queues, routing, and omnichannel support, with agent-assist Copilot and Contact Center.</p><div class="pills"><span class="pill">Cases</span><span class="pill">Queues &amp; routing</span><span class="pill">Omnichannel</span><span class="pill">Contact Center</span></div></div>
+    <div class="content">
+      <section id="intro">
+        <h2><span class="badge">1</span> What is Dynamics 365 Customer Service?</h2>
+        <p><strong>Dynamics 365 Customer Service</strong> helps agents resolve customer issues quickly and consistently. The central record is the <strong>case</strong> &mdash; a tracked customer issue &mdash; supported by <strong>queues</strong>, routing, knowledge articles, and omnichannel engagement.</p><div class="callout info"><b>Agent-assist Copilot</b>Copilot drafts responses, summarizes long cases, and answers agent questions from your knowledge base &mdash; cutting handle time.</div>
+      </section>
+      <section id="case">
+        <h2><span class="badge">2</span> The case lifecycle</h2>
+        <ol class="steps"><li>A <strong>case</strong> is created from a call, email, chat, or portal.</li><li>It is <strong>routed</strong> to the right queue or agent by rules.</li><li>An agent works it, using knowledge articles and Copilot.</li><li>The case is <strong>resolved</strong> &mdash; or escalated if needed.</li><li>Resolution and timelines feed analytics and SLAs.</li></ol>
+      </section>
+      <section id="queues">
+        <h2><span class="badge">3</span> Queues & routing</h2>
+        <p><strong>Queues</strong> hold work items (cases, activities) waiting to be picked up; <strong>routing</strong> decides who gets what.</p><table><tr><th>Concept</th><th>Role</th></tr><tr><td>Basic queue</td><td>A shared list agents pick items from.</td></tr><tr><td>Unified routing</td><td>Rules-based, skills-based assignment of work.</td></tr><tr><td>SLA</td><td>A time target for first response / resolution.</td></tr><tr><td>Knowledge article</td><td>Reusable answer content agents attach to cases.</td></tr></table><div class="callout tip"><b>Route by skill</b>Unified routing can match a case to an agent by skill and capacity, not just availability &mdash; raising first-contact resolution.</div>
+      </section>
+      <section id="omnichannel">
+        <h2><span class="badge">4</span> Omnichannel & Contact Center</h2>
+        <p>Beyond email and phone, agents engage across <strong>live chat, SMS, social, and voice</strong> in one workspace. <strong>Dynamics 365 Contact Center</strong> is the Copilot-first contact-center-as-a-service layer that brings these channels and AI together.</p><div class="grid3"><div class="card"><h4>One workspace</h4>Agents handle every channel from a single, context-rich desktop.</div><div class="card"><h4>AI deflection</h4>Self-service agents resolve common issues before they reach a human.</div><div class="card"><h4>Analytics</h4>Omnichannel insights reveal volumes, sentiment, and bottlenecks.</div></div>
+      </section>
+      <section id="glossary">
+        <h2><span class="badge">5</span> Glossary</h2>
+        <table><tr><th>Term</th><th>Definition</th></tr><tr><td>Case</td><td>A tracked customer issue.</td></tr><tr><td>Queue</td><td>A shared list of work items awaiting an agent.</td></tr><tr><td>Unified routing</td><td>Rules/skills-based assignment of work.</td></tr><tr><td>SLA</td><td>A response/resolution time commitment.</td></tr><tr><td>Omnichannel</td><td>Engaging customers across many channels in one place.</td></tr></table>
+      </section>
+      <section id="learn">
+        <h2><span class="badge">6</span> Where to start &mdash; learning path</h2>
+        <p>A guided path to go from zero to productive. Work top to bottom:</p><ul class="srclist"><li><a href="https://learn.microsoft.com/dynamics365/customer-service/overview" target="_blank" rel="noopener">Customer Service overview</a></li><li><a href="https://learn.microsoft.com/dynamics365/customer-service/use/work-with-queues" target="_blank" rel="noopener">Work with queues</a></li><li><a href="https://learn.microsoft.com/training/paths/work-with-cases-in-dynamics-365-for-customer-service/" target="_blank" rel="noopener">Training: Work with cases</a></li><li><a href="https://learn.microsoft.com/dynamics365/contact-center/implement/overview-contact-center" target="_blank" rel="noopener">Contact Center overview</a></li></ul>
+      </section>
+      <section id="sources">
+        <h2><span class="badge">7</span> Sources</h2>
+        <p>This manual is grounded in the official Microsoft documentation. For authoritative, up-to-date detail, see:</p><ul class="srclist"><li><a href="https://learn.microsoft.com/dynamics365/customer-service/overview" target="_blank" rel="noopener">Customer Service overview</a></li><li><a href="https://learn.microsoft.com/dynamics365/customer-service/use/work-with-queues" target="_blank" rel="noopener">Work with queues</a></li><li><a href="https://learn.microsoft.com/dynamics365/customer-service/administer/set-up-queues-manage-activities-cases" target="_blank" rel="noopener">Set up queues to manage cases</a></li><li><a href="https://learn.microsoft.com/dynamics365/contact-center/implement/overview-contact-center" target="_blank" rel="noopener">Contact Center overview</a></li></ul>
+      </section>
+
+    </div>
+    <footer>Dynamics 365 Customer Service &middot; Dynamics 365 Library &middot; Generated 25 June 2026. Grounded in the official <a href="https://learn.microsoft.com/dynamics365/customer-service/overview">Microsoft documentation</a>.</footer>
+  </main>
+</div></body></html>

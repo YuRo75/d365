@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dataverse & Model-Driven Apps</title><style>
+  :root{--accent:#742774;--accent-deep:#2a0f2a;--accent-soft:#fbf0fb;
+    --green:#107c41;--amber:#d29922;--ink:#1f2328;--muted:#5b6770;--line:#d7dee0;--bg:#ffffff;--code-bg:#f5f7f9;--sidebar:#f5f7f9}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:-apple-system,'Segoe UI',system-ui,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .shell{display:grid;grid-template-columns:268px 1fr;min-height:100vh}
+  nav{position:sticky;top:0;height:100vh;overflow-y:auto;background:var(--sidebar);border-right:1px solid var(--line);padding:24px 18px}
+  nav .home{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;color:var(--muted);margin-bottom:16px}
+  nav .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:16px;margin-bottom:6px;color:var(--ink)}
+  nav .brand .logo{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent-deep));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:13px;flex:none}
+  nav .ver{font-size:12px;color:var(--muted);margin-bottom:18px}
+  nav a.lnk{display:block;color:var(--ink);font-size:13.5px;padding:5px 10px;border-radius:6px;margin:1px 0}
+  nav a.lnk:hover{background:#e7edf1;text-decoration:none}
+  nav .sec{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700;margin:16px 0 5px;padding-left:10px}
+  main{padding:0 0 100px}
+  .hero{background:linear-gradient(135deg,var(--accent-deep),var(--accent));color:#fff;padding:50px 56px 40px}
+  .hero .eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:12px;font-weight:600;opacity:.85;margin:0 0 10px}
+  .hero h1{margin:0 0 12px;font-size:34px;font-weight:800}
+  .hero p{font-size:17px;opacity:.93;max-width:680px;margin:0}
+  .hero .pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+  .pill{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.26);padding:6px 13px;border-radius:20px;font-size:13px;font-weight:600}
+  .content{padding:14px 56px;max-width:1000px}
+  section{padding:26px 0;border-bottom:1px solid var(--line)}
+  section:last-child{border-bottom:none}
+  h2{font-size:24px;margin:6px 0 4px;display:flex;align-items:center;gap:12px}
+  h2 .badge{font-size:13px;font-weight:700;color:#fff;background:var(--accent);border-radius:20px;min-width:28px;height:28px;padding:0 8px;display:inline-flex;align-items:center;justify-content:center}
+  h3{font-size:17.5px;margin:22px 0 6px}
+  p,li{font-size:15px}
+  code{background:var(--code-bg);border:1px solid var(--line);border-radius:5px;padding:1px 6px;font-family:'SFMono-Regular',Consolas,monospace;font-size:13px}
+  pre{background:#0f1720;color:#e6edf3;border:1px solid #20303d;border-radius:10px;padding:16px 18px;overflow-x:auto;font-size:13px;line-height:1.55}
+  pre code{background:none;border:none;padding:0;color:inherit}
+  .cmt{color:#7d8da3}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
+  th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{background:var(--code-bg);font-weight:700}
+  .callout{border-radius:10px;padding:14px 18px;margin:16px 0;font-size:14.5px;border-left:4px solid}
+  .tip{background:#ecfdf3;border-color:var(--green)}
+  .warn{background:#fff8e6;border-color:var(--amber)}
+  .info{background:var(--accent-soft);border-color:var(--accent)}
+  .callout b{display:block;margin-bottom:3px}
+  .steps{counter-reset:step;list-style:none;padding-left:0}
+  .steps li{counter-increment:step;position:relative;padding:8px 0 8px 44px;border-bottom:1px solid var(--line)}
+  .steps li:last-child{border-bottom:none}
+  .steps li::before{content:counter(step);position:absolute;left:0;top:8px;width:28px;height:28px;background:var(--accent-deep);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+  .card{background:var(--code-bg);border:1px solid var(--line);border-radius:10px;padding:16px 18px}
+  .card h4{margin:0 0 6px;font-size:15px}
+  .srclist{margin:6px 0 0;padding-left:20px}
+  .srclist li{margin:7px 0;font-size:14.5px}
+  .srclist a{font-weight:600;word-break:break-word}
+  footer{padding:28px 56px;color:var(--muted);font-size:13px}
+  @media(max-width:880px){.shell{grid-template-columns:1fr}nav{display:none}.hero,.content,footer{padding-left:22px;padding-right:22px}.grid2,.grid3{grid-template-columns:1fr}}
+</style></head><body>
+<div class="shell">
+  <nav>
+    <a class="home" href="../index.html">&#8592; Dynamics 365 Library</a>
+    <div class="brand"><span class="logo">DV</span> Dataverse</div>
+    <div class="ver">v1.0 &middot; June 2026</div>
+    <div class="sec">Foundations</div><a class="lnk" href="#intro">1. What is it?</a><a class="lnk" href="#concepts">2. Core concepts</a><div class="sec">Building</div><a class="lnk" href="#model-driven">3. Model-driven apps</a><a class="lnk" href="#security">4. Security</a><div class="sec">Operate</div><a class="lnk" href="#extend">5. Automate & extend</a><a class="lnk" href="#glossary">6. Glossary</a><div class="sec">Go further</div><a class="lnk" href="#learn">7. Where to start</a><a class="lnk" href="#sources">8. Sources</a>
+  </nav>
+  <main>
+    <div class="hero"><p class="eyebrow">The Dynamics 365 foundation</p><h1>Dataverse & Model-Driven Apps</h1><p>The secure, scalable data platform and app model beneath most Dynamics 365 CRM apps &mdash; tables, relationships, security, and automation.</p><div class="pills"><span class="pill">Tables &amp; columns</span><span class="pill">Relationships</span><span class="pill">Security roles</span><span class="pill">Power Platform</span></div></div>
+    <div class="content">
+      <section id="intro">
+        <h2><span class="badge">1</span> What is Microsoft Dataverse?</h2>
+        <p><strong>Microsoft Dataverse</strong> lets you securely store and manage data used by business applications. Data is organized into <strong>tables</strong> (rows and columns), and Dynamics 365 apps like Sales and Customer Service are built directly on top of it. It comes with a rich standard schema &mdash; the <strong>Common Data Model</strong> &mdash; that you extend with your own tables.</p><div class="callout info"><b>Why it matters</b>Because every CRM app shares one Dataverse, a customer record created in Sales is the same record a Service agent sees &mdash; no syncing, no duplication.</div>
+      </section>
+      <section id="concepts">
+        <h2><span class="badge">2</span> Core concepts</h2>
+        <table><tr><th>Term</th><th>Meaning</th></tr><tr><td>Table (entity)</td><td>A set of rows storing one kind of record (Account, Contact, Case).</td></tr><tr><td>Column (field)</td><td>A single attribute of a row (name, email, status).</td></tr><tr><td>Row (record)</td><td>One instance &mdash; e.g. the account "Contoso".</td></tr><tr><td>Relationship</td><td>A link between tables (an Account has many Contacts).</td></tr><tr><td>Choice (option set)</td><td>A field with a fixed set of values.</td></tr><tr><td>Solution</td><td>A package of customizations you move between environments.</td></tr></table>
+      </section>
+      <section id="model-driven">
+        <h2><span class="badge">3</span> Model-driven apps</h2>
+        <p>A <strong>model-driven app</strong> builds its UI <em>from</em> the data model. You define tables, forms, views, and relationships; the app generates a consistent, responsive interface automatically &mdash; no pixel-by-pixel design.</p><div class="grid3"><div class="card"><h4>Forms</h4>How a single record is viewed and edited.</div><div class="card"><h4>Views</h4>Filtered, sortable lists of rows.</div><div class="card"><h4>Site map</h4>The app's navigation across tables and pages.</div></div><div class="callout tip"><b>Component-focused, not canvas</b>Model-driven apps are ideal for complex, data-dense business processes. Choose canvas apps only when you need pixel-perfect, task-specific UI.</div>
+      </section>
+      <section id="security">
+        <h2><span class="badge">4</span> Security model</h2>
+        <p>Dataverse security is layered, so users see exactly what their role allows:</p><table><tr><th>Layer</th><th>Controls</th></tr><tr><td>Environment</td><td>Who can access the whole environment.</td></tr><tr><td>Security role</td><td>What a user can do (create/read/write/delete) per table.</td></tr><tr><td>Business unit</td><td>Organizational scoping of data ownership.</td></tr><tr><td>Row &amp; field level</td><td>Sharing individual rows; hiding specific columns.</td></tr></table><div class="callout warn"><b>Least privilege</b>Grant the narrowest role that lets a user do their job. Broad roles leak data across business units fast.</div>
+      </section>
+      <section id="extend">
+        <h2><span class="badge">5</span> Automate & extend</h2>
+        <div class="grid2"><div class="card"><h4>Power Automate</h4>Trigger flows on row create/update to automate process.</div><div class="card"><h4>Power Apps</h4>Build extra canvas or model-driven apps on the same data.</div><div class="card"><h4>Power BI</h4>Report and visualize Dataverse data.</div><div class="card"><h4>Copilot Studio</h4>Build agents grounded in your Dataverse tables.</div></div>
+      </section>
+      <section id="glossary">
+        <h2><span class="badge">6</span> Glossary</h2>
+        <table><tr><th>Term</th><th>Definition</th></tr><tr><td>Common Data Model</td><td>The standard table schema Dataverse ships with.</td></tr><tr><td>Solution</td><td>A deployable package of customizations.</td></tr><tr><td>Form / View</td><td>Record editor / filtered list in a model-driven app.</td></tr><tr><td>Business unit</td><td>An org grouping used for data ownership and scoping.</td></tr><tr><td>Choice</td><td>A fixed set of selectable values for a column.</td></tr></table>
+      </section>
+      <section id="learn">
+        <h2><span class="badge">7</span> Where to start &mdash; learning path</h2>
+        <p>A guided path to go from zero to productive. Work top to bottom:</p><ul class="srclist"><li><a href="https://learn.microsoft.com/power-apps/maker/data-platform/data-platform-intro" target="_blank" rel="noopener">What is Microsoft Dataverse?</a></li><li><a href="https://learn.microsoft.com/power-apps/maker/model-driven-apps/model-driven-app-overview" target="_blank" rel="noopener">Model-driven apps overview</a></li><li><a href="https://learn.microsoft.com/power-apps/maker/model-driven-apps/define-data-model-driven-app" target="_blank" rel="noopener">Build the data model for a model-driven app</a></li><li><a href="https://learn.microsoft.com/power-apps/maker/model-driven-apps/model-driven-app-glossary" target="_blank" rel="noopener">Model-driven app glossary</a></li></ul>
+      </section>
+      <section id="sources">
+        <h2><span class="badge">8</span> Sources</h2>
+        <p>This manual is grounded in the official Microsoft documentation. For authoritative, up-to-date detail, see:</p><ul class="srclist"><li><a href="https://learn.microsoft.com/power-apps/maker/data-platform/data-platform-intro" target="_blank" rel="noopener">What is Microsoft Dataverse?</a></li><li><a href="https://learn.microsoft.com/power-apps/maker/model-driven-apps/model-driven-app-overview" target="_blank" rel="noopener">Model-driven apps overview</a></li><li><a href="https://learn.microsoft.com/power-apps/maker/model-driven-apps/define-data-model-driven-app" target="_blank" rel="noopener">Define the data model</a></li><li><a href="https://learn.microsoft.com/power-pages/getting-started/what-is-dataverse" target="_blank" rel="noopener">What is Dataverse (Power Pages)</a></li></ul>
+      </section>
+
+    </div>
+    <footer>Dataverse & Model-Driven Apps &middot; Dynamics 365 Library &middot; Generated 25 June 2026. Grounded in the official <a href="https://learn.microsoft.com/power-apps/maker/data-platform/data-platform-intro">Microsoft documentation</a>.</footer>
+  </main>
+</div></body></html>

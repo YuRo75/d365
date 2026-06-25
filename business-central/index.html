@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dynamics 365 Business Central</title><style>
+  :root{--accent:#c77f0a;--accent-deep:#3d2700;--accent-soft:#fdf6e9;
+    --green:#107c41;--amber:#d29922;--ink:#1f2328;--muted:#5b6770;--line:#d7dee0;--bg:#ffffff;--code-bg:#f5f7f9;--sidebar:#f5f7f9}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:-apple-system,'Segoe UI',system-ui,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .shell{display:grid;grid-template-columns:268px 1fr;min-height:100vh}
+  nav{position:sticky;top:0;height:100vh;overflow-y:auto;background:var(--sidebar);border-right:1px solid var(--line);padding:24px 18px}
+  nav .home{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;color:var(--muted);margin-bottom:16px}
+  nav .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:16px;margin-bottom:6px;color:var(--ink)}
+  nav .brand .logo{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent-deep));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:13px;flex:none}
+  nav .ver{font-size:12px;color:var(--muted);margin-bottom:18px}
+  nav a.lnk{display:block;color:var(--ink);font-size:13.5px;padding:5px 10px;border-radius:6px;margin:1px 0}
+  nav a.lnk:hover{background:#e7edf1;text-decoration:none}
+  nav .sec{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700;margin:16px 0 5px;padding-left:10px}
+  main{padding:0 0 100px}
+  .hero{background:linear-gradient(135deg,var(--accent-deep),var(--accent));color:#fff;padding:50px 56px 40px}
+  .hero .eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:12px;font-weight:600;opacity:.85;margin:0 0 10px}
+  .hero h1{margin:0 0 12px;font-size:34px;font-weight:800}
+  .hero p{font-size:17px;opacity:.93;max-width:680px;margin:0}
+  .hero .pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+  .pill{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.26);padding:6px 13px;border-radius:20px;font-size:13px;font-weight:600}
+  .content{padding:14px 56px;max-width:1000px}
+  section{padding:26px 0;border-bottom:1px solid var(--line)}
+  section:last-child{border-bottom:none}
+  h2{font-size:24px;margin:6px 0 4px;display:flex;align-items:center;gap:12px}
+  h2 .badge{font-size:13px;font-weight:700;color:#fff;background:var(--accent);border-radius:20px;min-width:28px;height:28px;padding:0 8px;display:inline-flex;align-items:center;justify-content:center}
+  h3{font-size:17.5px;margin:22px 0 6px}
+  p,li{font-size:15px}
+  code{background:var(--code-bg);border:1px solid var(--line);border-radius:5px;padding:1px 6px;font-family:'SFMono-Regular',Consolas,monospace;font-size:13px}
+  pre{background:#0f1720;color:#e6edf3;border:1px solid #20303d;border-radius:10px;padding:16px 18px;overflow-x:auto;font-size:13px;line-height:1.55}
+  pre code{background:none;border:none;padding:0;color:inherit}
+  .cmt{color:#7d8da3}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
+  th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{background:var(--code-bg);font-weight:700}
+  .callout{border-radius:10px;padding:14px 18px;margin:16px 0;font-size:14.5px;border-left:4px solid}
+  .tip{background:#ecfdf3;border-color:var(--green)}
+  .warn{background:#fff8e6;border-color:var(--amber)}
+  .info{background:var(--accent-soft);border-color:var(--accent)}
+  .callout b{display:block;margin-bottom:3px}
+  .steps{counter-reset:step;list-style:none;padding-left:0}
+  .steps li{counter-increment:step;position:relative;padding:8px 0 8px 44px;border-bottom:1px solid var(--line)}
+  .steps li:last-child{border-bottom:none}
+  .steps li::before{content:counter(step);position:absolute;left:0;top:8px;width:28px;height:28px;background:var(--accent-deep);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+  .card{background:var(--code-bg);border:1px solid var(--line);border-radius:10px;padding:16px 18px}
+  .card h4{margin:0 0 6px;font-size:15px}
+  .srclist{margin:6px 0 0;padding-left:20px}
+  .srclist li{margin:7px 0;font-size:14.5px}
+  .srclist a{font-weight:600;word-break:break-word}
+  footer{padding:28px 56px;color:var(--muted);font-size:13px}
+  @media(max-width:880px){.shell{grid-template-columns:1fr}nav{display:none}.hero,.content,footer{padding-left:22px;padding-right:22px}.grid2,.grid3{grid-template-columns:1fr}}
+</style></head><body>
+<div class="shell">
+  <nav>
+    <a class="home" href="../index.html">&#8592; Dynamics 365 Library</a>
+    <div class="brand"><span class="logo">BC</span> Business Central</div>
+    <div class="ver">v1.0 &middot; June 2026</div>
+    <div class="sec">Foundations</div><a class="lnk" href="#intro">1. What is it?</a><div class="sec">Capabilities</div><a class="lnk" href="#areas">2. What it covers</a><a class="lnk" href="#finance">3. Finance basics</a><div class="sec">Operate</div><a class="lnk" href="#extend">4. Connect & extend</a><a class="lnk" href="#glossary">5. Glossary</a><div class="sec">Go further</div><a class="lnk" href="#learn">6. Where to start</a><a class="lnk" href="#sources">7. Sources</a>
+  </nav>
+  <main>
+    <div class="hero"><p class="eyebrow">ERP for small & medium business</p><h1>Dynamics 365 Business Central</h1><p>An all-in-one ERP for small and medium businesses &mdash; finance, sales, purchasing, inventory, and operations in a single, connected app.</p><div class="pills"><span class="pill">All-in-one ERP</span><span class="pill">Finance</span><span class="pill">Inventory</span><span class="pill">SMB</span></div></div>
+    <div class="content">
+      <section id="intro">
+        <h2><span class="badge">1</span> What is Business Central?</h2>
+        <p><strong>Dynamics 365 Business Central</strong> is an all-in-one business management solution built and optimized for <strong>small and medium businesses</strong>. It's for companies that have outgrown entry-level accounting software and want finance, sales, purchasing, inventory, and operations in one connected app.</p><div class="callout info"><b>One app, not many</b>Where enterprises run separate Finance and Supply Chain apps, Business Central bundles those capabilities into a single, simpler product sized for SMBs.</div>
+      </section>
+      <section id="areas">
+        <h2><span class="badge">2</span> What it covers</h2>
+        <div class="grid3"><div class="card"><h4>Finance</h4>General ledger, banking, cash flow, and reporting.</div><div class="card"><h4>Sales & receivables</h4>Quotes, orders, invoices, and customer balances.</div><div class="card"><h4>Purchasing & payables</h4>Vendor orders, invoices, and payments.</div><div class="card"><h4>Inventory</h4>Items, stock levels, and valuation.</div><div class="card"><h4>Projects</h4>Jobs, time sheets, and project costing.</div><div class="card"><h4>Operations</h4>Light manufacturing, service, and warehousing.</div></div>
+      </section>
+      <section id="finance">
+        <h2><span class="badge">3</span> Finance in Business Central</h2>
+        <p>Finance is the core: a <strong>chart of accounts</strong>, general ledger, and the receivables/payables that track money in and out &mdash; the same accounting concepts as enterprise Finance, in a streamlined package.</p><ul><li>Post and review entries against the general ledger.</li><li>Manage customer and vendor invoices and payments.</li><li>Reconcile bank accounts and report on cash flow.</li></ul>
+      </section>
+      <section id="extend">
+        <h2><span class="badge">4</span> Connect & extend</h2>
+        <p>Business Central integrates tightly with <strong>Microsoft 365</strong> (work in Outlook and Excel) and the <strong>Power Platform</strong>, and extends through <strong>AppSource</strong> apps and per-tenant extensions.</p><div class="callout tip"><b>Start with the base, add as you grow</b>Begin with the standard app, then add AppSource extensions for industry-specific needs instead of customizing the core.</div>
+      </section>
+      <section id="glossary">
+        <h2><span class="badge">5</span> Glossary</h2>
+        <table><tr><th>Term</th><th>Definition</th></tr><tr><td>Business Central</td><td>All-in-one ERP for small and medium businesses.</td></tr><tr><td>General ledger</td><td>The central financial record.</td></tr><tr><td>Extension</td><td>An add-on that customizes Business Central without changing the base.</td></tr><tr><td>AppSource</td><td>Microsoft's marketplace for Business Central apps.</td></tr><tr><td>Role center</td><td>A role-tailored home page in the app.</td></tr></table>
+      </section>
+      <section id="learn">
+        <h2><span class="badge">6</span> Where to start &mdash; learning path</h2>
+        <p>A guided path to go from zero to productive. Work top to bottom:</p><ul class="srclist"><li><a href="https://learn.microsoft.com/dynamics365/business-central/welcome" target="_blank" rel="noopener">Welcome to Business Central</a></li><li><a href="https://learn.microsoft.com/training/modules/intro-dynamics-365-business-central/" target="_blank" rel="noopener">Training: Introduction to Business Central</a></li><li><a href="https://learn.microsoft.com/dynamics365/business-central/finance" target="_blank" rel="noopener">Finance in Business Central</a></li><li><a href="https://learn.microsoft.com/dynamics365/business-central/learn-accounting-bookkeeping-guide" target="_blank" rel="noopener">Accounting and bookkeeping guide</a></li></ul>
+      </section>
+      <section id="sources">
+        <h2><span class="badge">7</span> Sources</h2>
+        <p>This manual is grounded in the official Microsoft documentation. For authoritative, up-to-date detail, see:</p><ul class="srclist"><li><a href="https://learn.microsoft.com/dynamics365/business-central/welcome" target="_blank" rel="noopener">Welcome to Business Central</a></li><li><a href="https://learn.microsoft.com/dynamics365/business-central/finance" target="_blank" rel="noopener">Finance in Business Central</a></li><li><a href="https://learn.microsoft.com/dynamics365/business-central/integration-overview" target="_blank" rel="noopener">Integration overview</a></li><li><a href="https://learn.microsoft.com/dynamics365/business-central/learn-accounting-bookkeeping-guide" target="_blank" rel="noopener">Accounting & bookkeeping guide</a></li></ul>
+      </section>
+
+    </div>
+    <footer>Dynamics 365 Business Central &middot; Dynamics 365 Library &middot; Generated 25 June 2026. Grounded in the official <a href="https://learn.microsoft.com/dynamics365/business-central/welcome">Microsoft documentation</a>.</footer>
+  </main>
+</div></body></html>
